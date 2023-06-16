@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Bucket
+   uuid = "2C61DE77-EE88-4763-900A-5650B4BD8D88"
+   type = "1"
+   version = "2.0">
+   <Breakpoints>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "0F85FF83-D80E-4E72-A900-45105E7767F2"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "Bayleaf Store/ViewController.swift"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "384"
+            endingLineNumber = "384"
+            landmarkName = "hideMenu(_:)"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "0F85FF83-D80E-4E72-A900-45105E7767F2 - 5f4c8e8446c97a96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bayleaf_Store.ViewController.hideMenu(Any) -&gt; ()"
+                  moduleName = "Bayleaf Store"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ogabekmansurov/Desktop/Bayleaf%20Store/Bayleaf%20Store/Bayleaf%20Store/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "384"
+                  endingLineNumber = "384"
+                  offsetFromSymbolStart = "68">
+               </Location>
+               <Location
+                  uuid = "0F85FF83-D80E-4E72-A900-45105E7767F2 - 5f4c8e8446c97a96"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "Bayleaf_Store.ViewController.hideMenu(Any) -&gt; ()"
+                  moduleName = "Bayleaf Store"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/ogabekmansurov/Desktop/Bayleaf%20Store/Bayleaf%20Store/Bayleaf%20Store/ViewController.swift"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "384"
+                  endingLineNumber = "384"
+                  offsetFromSymbolStart = "56">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+   </Breakpoints>
+</Bucket>
