@@ -12,7 +12,7 @@
         <!--View Controller-->
         <scene sceneID="5v8-X5-lRm">
             <objects>
-                <viewController id="95A-HF-OWZ" customClass="ViewController" customModule="Bayleaf_Store" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="myId" useStoryboardIdentifierAsRestorationIdentifier="YES" id="95A-HF-OWZ" customClass="ViewController" customModule="AI_Project" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Hel-Ma-jK7">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -22,7 +22,7 @@
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="tintColor" red="0.65437761577984288" green="0.83006472310061175" blue="0.51645018894598815" alpha="0.84705882352941175" colorSpace="custom" customColorSpace="displayP3"/>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tableViewCell" id="ero-EO-jSG" customClass="tableViewCell" customModule="Bayleaf_Store" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="tableViewCell" id="ero-EO-jSG" customClass="tableViewCell" customModule="AI_Project" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="50" width="339" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ero-EO-jSG" id="ki0-Z2-W5x">
@@ -53,7 +53,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wfR-cq-UhP">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Снимок экрана 2023-06-15 в 1.25.10 AM.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-0V-cqs">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="back.png" translatesAutoresizingMaskIntoConstraints="NO" id="g0C-0V-cqs">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                                     </imageView>
                                 </subviews>
@@ -109,7 +109,7 @@
         <!--Navigation Controller-->
         <scene sceneID="OgW-lQ-MnT">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="mNn-Bd-Usb" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="stroryID" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="mNn-Bd-Usb" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" largeTitles="YES" id="h2X-mB-ZF0">
                         <rect key="frame" x="0.0" y="48" width="414" height="96"/>
@@ -126,7 +126,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Снимок экрана 2023-06-15 в 1.25.10 AM.png" width="686" height="582"/>
+        <image name="back.png" width="686" height="582"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
