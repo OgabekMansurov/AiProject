@@ -21,34 +21,12 @@ class ViewController: UIViewController {
         case opened
         case closed
     }
-    
     var animate: Bool = false
-    
     private var menuState: MenuState = .closed
     
-    private let chatGPTNameView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.layer.borderColor = UIColor(hexString: "#b5651d").cgColor
-        view.layer.borderWidth = 1.5
-        return view
-    }()
-
-    let unlimitedButton: UIButton = {
-       let button = UIButton()
-        button.setTitle(" ♛ Unlimited Access", for: .normal)
-        button.layer.cornerRadius = 15
-        button.backgroundColor = UIColor(hexString: "#b5651d")
-        button.layer.borderWidth = 1
-        button.layer.borderColor = UIColor(ciColor: .white).cgColor
-        button.layer.shadowColor = UIColor(hexString: "#b5651d").cgColor
-        button.layer.shadowOffset = CGSize(width: 0, height: 3)
-        button.layer.shadowRadius = 15
-        button.layer.shadowOpacity = 0.4
-        button.layer.shadowPath = nil
-        return button
-    }()
+    let haptic = UISelectionFeedbackGenerator()
+    let items = ["ENG", "RUS", "UZB"]
+   
     
     lazy var segmented: UISegmentedControl = {
        let segment = UISegmentedControl(items: items)
@@ -62,46 +40,6 @@ class ViewController: UIViewController {
     }()
     
     
-    let haptic = UISelectionFeedbackGenerator()
-    let items = ["ENG", "RUS", "UZB"]
-    
-    
-    private let imgView: UIImageView = {
-       let image = UIImageView()
-        image.contentMode = .scaleAspectFit
-        image.image = UIImage(named: "openAI")
-        return image
-    }()
-    
-    private let backgrountNameView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.layer.borderColor = UIColor(hexString: "#b5651d").cgColor
-        view.layer.borderWidth = 1.5
-        return view
-    }()
-    
-    private let textView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.layer.borderColor = UIColor(hexString: "#b5651d").cgColor
-        view.layer.borderWidth = 1.5
-        return view
-    }()
-    
-    private let backgrountCurcleView: UIView = {
-        let view = UIView()
-        view.translatesAutoresizingMaskIntoConstraints = false
-        view.backgroundColor = .white
-        view.layer.borderColor = UIColor(hexString: "#b5651d").cgColor
-        view.layer.borderWidth = 1.5
-        return view
-    }()
-    
-    private let titleLabel = CustomLabel(title: "Ai Technology", fontsize: 28, fontType: .bold, textColor: UIColor(hexString: "#b5651d"))
-    private let gptLabel = CustomLabel(title: "Chat GPT", fontsize: 28, fontType: .bold, textColor: UIColor(hexString: "#b5651d"))
     
     @IBOutlet var containerView: UIView!
     @IBOutlet var viewBG: UIImageView!
@@ -112,7 +50,6 @@ class ViewController: UIViewController {
     var menu = false
     var home = CGAffineTransform()
     var options: [option] = [
-        
          option(title: "  New Chat", segue: "HomeSegue"),
          option(title: "  See all history", segue: "HomeSegue"),
          option(title: "",segue: ""),
@@ -123,7 +60,6 @@ class ViewController: UIViewController {
          option(title: "  Privacy Policy", segue: "PrivacySegue"),
          option(title: "  Terms of Service", segue: "PrivacySegue"),
          option(title: "",segue: ""),
-        
     ]
     
     struct option {
@@ -131,6 +67,14 @@ class ViewController: UIViewController {
         var segue = String()
     }
     
+    private let imgView = UIImageView(image: UIImage(named: "openAI"))
+    private let chatGPTNameView = CustumView(hasbackgroundColor: .white, borderColor: UIColor(hexString: "#b5651d"), borderWidth: 1.5)
+    private let backgrountNameView = CustumView(hasbackgroundColor: .white, borderColor: UIColor(hexString: "#b5651d"), borderWidth: 1.5)
+    private let textView = CustumView(hasbackgroundColor: .white, borderColor: UIColor(hexString: "#b5651d"), borderWidth: 1.5)
+    private let backgrountCurcleView = CustumView(hasbackgroundColor: .white, borderColor: UIColor(hexString: "#b5651d"), borderWidth: 1.5)
+    private let titleLabel = CustomLabel(title: "Ai Technology", fontsize: 28, fontType: .bold, textColor: UIColor(hexString: "#b5651d"))
+    private let gptLabel = CustomLabel(title: "Chat GPT", fontsize: 28, fontType: .bold, textColor: UIColor(hexString: "#b5651d"))
+    private let unlimitedButton = CustomButton(title: " ♛ Unlimited Access",hasBackground: true, FontSize: 15)
     
     private var heightConstraint = NSLayoutConstraint()
     private var widthConstraint = NSLayoutConstraint()
@@ -142,9 +86,10 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
         navigationItem.setHidesBackButton(true, animated: true)
         extractedFunc()
+        
+        unlimitedButton.addTarget(self, action: #selector(unlimitedButtonDid), for: .touchUpInside)
         }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -156,6 +101,10 @@ class ViewController: UIViewController {
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
        
+        UIView.animate(withDuration: 0.8, delay: 0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: {
+            self.unlimitedButton.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
+        }, completion: nil)
+        
         if  animate == false {            
             UIView.animate(withDuration: 1.5) {
                 self.titleLabel.alpha = 1
@@ -196,7 +145,6 @@ class ViewController: UIViewController {
                 self.containerView.layer.cornerRadius = 0
                 self.viewBG.layer.cornerRadius = 0
             })
-        
     }
     
     
@@ -204,12 +152,10 @@ class ViewController: UIViewController {
         
         print("menu interaction")
         if menu == false && swipeGesture.direction == .right {
-            
             print("user is showing menu")
             
             showMenu()
             menuTableView.reloadData()
-            
             menu = true
                         
         }
@@ -221,22 +167,23 @@ class ViewController: UIViewController {
         case 0 : print("1")
         case 1 : print("2")
         case 3 : print("3")
-            
         default : print("defauld")
         }
     }
     
     
     @IBAction func hideMenu(_ sender: Any) {
-        
         if menu == true {
-            
             print("user is hiding menu")
-            
             hideMenu()
-            
         }
     }
+    @objc func unlimitedButtonDid() {
+        print("unlimitedButton")
+    }
+    
+    
+    
     
     fileprivate func extractedFunc() {
         
@@ -270,7 +217,6 @@ class ViewController: UIViewController {
         backgrountCurcleView.addSubview(imgView)
         headerView.addSubview(unlimitedButton)
         
-        
         textView.translatesAutoresizingMaskIntoConstraints = false
         imgView.translatesAutoresizingMaskIntoConstraints = false
         segmented.translatesAutoresizingMaskIntoConstraints = false
@@ -279,6 +225,10 @@ class ViewController: UIViewController {
         titleLabel.translatesAutoresizingMaskIntoConstraints = false
         chatGPTNameView.translatesAutoresizingMaskIntoConstraints = false
         gptLabel.translatesAutoresizingMaskIntoConstraints = false
+        chatGPTNameView.translatesAutoresizingMaskIntoConstraints = false
+        backgrountNameView.translatesAutoresizingMaskIntoConstraints = false
+        textView.translatesAutoresizingMaskIntoConstraints = false
+        backgrountCurcleView.translatesAutoresizingMaskIntoConstraints = false
         
         heightConstraint = textView.heightAnchor.constraint(equalToConstant: 0)
         widthConstraint = textView.widthAnchor.constraint(equalToConstant: 0)
@@ -330,7 +280,6 @@ class ViewController: UIViewController {
             gptLabel.leftAnchor.constraint(equalTo: chatGPTNameView.leftAnchor, constant: 45),
             gptLabel.rightAnchor.constraint(equalTo: chatGPTNameView.rightAnchor, constant: -45),
             
-            
             heightConstraint,
             widthConstraint,
             textView.centerXAnchor.constraint(equalTo: viewBG.centerXAnchor),
@@ -339,17 +288,13 @@ class ViewController: UIViewController {
     }
 }
 
-
-
 extension ViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        
         return options.count
         
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
         let cell = tableView.dequeueReusableCell(withIdentifier: "tableViewCell", for: indexPath) as! tableViewCell
         cell.descriptionLabel.text = options[indexPath.row].title
         cell.descriptionLabel.textColor = UIColor(hexString: "#b5651d")
@@ -374,12 +319,12 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 SKStoreReviewController.requestReview()
                 hideMenu()
             case 5 :
-                if let name = URL(string: "https://itunes.apple.com/us/app/myapp/idxxxxxxxx?ls=1&mt=8"), !name.absoluteString.isEmpty {
+                if let name = URL(string: "https://itunes.apple.com/us/app/"), !name.absoluteString.isEmpty {
                     let objectsToShare = [name]
                     let activityVC = UIActivityViewController(activityItems: objectsToShare, applicationActivities: nil)
                     self.present(activityVC, animated: true, completion: nil)
                 } else {
-                    // show alert for not available
+                    
                 }
                 hideMenu()
                 
@@ -392,7 +337,6 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                 self.navigationController?.pushViewController(vc, animated: true)
                 hideMenu()
             }
-            
         }
     }
     
@@ -406,16 +350,15 @@ extension ViewController: UITableViewDelegate, UITableViewDataSource {
                                     cell.transform = CGAffineTransform(translationX: cell.contentView.frame.width, y: cell.contentView.frame.height)
                     })
         })
-        
     }
     
 }
 
 
+
 class tableViewCell: UITableViewCell {
     
     @IBOutlet var descriptionLabel: UILabel!
-    
 }
 
 extension UIView {

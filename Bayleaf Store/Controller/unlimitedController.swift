@@ -6,18 +6,10 @@
 
 import UIKit
 
-class unlimitedAccses: UIViewController {
+class unlimitedController: UIViewController {
     
     let switchOnandof = UISwitch()
     var switchButtun: Bool = true
-    
-    private let textLabel: UILabel = {
-        let label = UILabel()
-        label.text = "Free Trial Enabled"
-        label.textColor = .white
-        label.font = .boldSystemFont(ofSize: 20)
-        return label
-    }()
     
     private let enabledUi: UIView = {
        let ui = UIView()
@@ -27,19 +19,6 @@ class unlimitedAccses: UIViewController {
         ui.layer.borderWidth = 1
         return ui
     }()
-
-    
-    private let headerName = CustomLabel(title: "AI Project", fontsize: 35, fontType: .bold, textColor: UIColor.white)
-    private let unlimitedLabel1 = CustomLabel(title: "UNLIMITED", hasbackground: true, fontsize: 33,  fontType: .regular,  textColor: UIColor.white)
-    private let unlimitedLabel2 = CustomLabel(title: "ACCESS", hasbackground: false, fontsize: 26,  fontType: .regular,  textColor: UIColor.white)
-    private let texlab1 = CustomLabel(title: "Powered by ChatGPT & GPT-4", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
-    private let texlab2 = CustomLabel(title: "More accurate and detailed answers.", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
-    private let texlab3 = CustomLabel(title: "Higher word limit", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
-    private let texlab4 = CustomLabel(title: "Type longer messages", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
-    private let texlab5 = CustomLabel(title: "No Limits", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
-    private let texlab6 = CustomLabel(title: "Have unlimited dialogues", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
-    private let texlab7 = CustomLabel(title: "No Ads", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
-    private let texlab8 = CustomLabel(title: "Enjoy AlChat without any ads", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
     
     private let privacyButton = CustomButton(title: "Privacy / Terms", FontSize: 17 )
     private let restoreButton = CustomButton(title: "Restore", hasBackground: true, FontSize: 15 )
@@ -47,35 +26,32 @@ class unlimitedAccses: UIViewController {
     private let freeButton = CustomButton(title: "3 days free trial", hasBackground: true,  FontSize: 22, borderColor: false)
     private let billedButton = CustomButton(title: "Billed once", hasBackground: false,  FontSize: 22, tintColor: false, borderColor: false)
         
-    private let uiviewImage: UIImageView = {
-       let image = UIImageView()
-        image.image = UIImage(named: "backImage")
-        image.contentMode = .scaleAspectFill
-        return image
-    }()
+    private let uiviewImage = UIImageView(image: UIImage(named: "backImage"))
     
+    private let texlab3 = CustomLabel(title: "Higher word limit", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
+    private let texlab4 = CustomLabel(title: "Type longer messages", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
+    private let texlab5 = CustomLabel(title: "No Limits", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
+    private let texlab6 = CustomLabel(title: "Have unlimited dialogues", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
+    private let texlab7 = CustomLabel(title: "No Ads", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
+    private let texlab8 = CustomLabel(title: "Enjoy AlChat without any ads", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
+    private let textLabel = CustomLabel(title: "Free Trial Enabled", fontsize: 29, fontType: .bold, textColor: UIColor.white)
+    private let headerName = CustomLabel(title: "AI Project", fontsize: 35, fontType: .bold, textColor: UIColor.white)
+    private let unlimitedLabel1 = CustomLabel(title: "UNLIMITED", hasbackground: true, fontsize: 33,  fontType: .regular,  textColor: UIColor.white)
+    private let unlimitedLabel2 = CustomLabel(title: "ACCESS", hasbackground: false, fontsize: 26,  fontType: .regular,  textColor: UIColor.white)
+    private let texlab1 = CustomLabel(title: "Powered by ChatGPT & GPT-4", fontsize: 15, fontType: .bold, textColor: .white, cornerRadius: false)
+    private let texlab2 = CustomLabel(title: "More accurate and detailed answers.", fontsize: 12, fontType: .regular, textColor: .white, cornerRadius: false)
     
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        freeButton.addTarget(self, action: #selector(freeButtonDid), for: .touchUpInside)
-        billedButton.addTarget(self, action: #selector(billedButtonDid), for: .touchUpInside)
-        nextButton.addTarget(self, action: #selector(nextButtonDid), for: .touchUpInside)
-        restoreButton.addTarget(self, action: #selector(restoreButtonDid), for: .touchUpInside)
-        privacyButton.addTarget(self, action: #selector(privacyButtonDid), for: .touchUpInside)
-
-        switchOnandof.setOn(false, animated: true)
-        switchOnandof.addTarget(self, action: #selector(updateSwitch), for:.valueChanged)
-        
+        targetButton()
         setupUI()
     }
+ 
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-    
         UIView.animate(withDuration: 0.8, delay: 0, options: [.repeat, .autoreverse, .allowUserInteraction], animations: {
-
             self.nextButton.transform = CGAffineTransform(scaleX: 0.85, y: 0.85)
-
         }, completion: nil)
     }
     
@@ -84,31 +60,25 @@ class unlimitedAccses: UIViewController {
         self.nextButton.layer.removeAllAnimations()
     }
    
-    
     @objc func freeButtonDid() {
         freeButton.backgroundColor = .white
         freeButton.setTitleColor(UIColor(hexString: "#b5651d"), for: .normal)
-        
         
         billedButton.backgroundColor = UIColor(hexString: "#b5651d")
         billedButton.setTitleColor(UIColor.white, for: .normal)
     }
     
     @objc func billedButtonDid() {
-        
         billedButton.backgroundColor = .white
         billedButton.setTitleColor(UIColor(hexString: "#b5651d"), for: .normal)
-        
         
         freeButton.backgroundColor = UIColor(hexString: "#b5651d")
         freeButton.setTitleColor(UIColor.white, for: .normal)
     }
     @objc func updateSwitch() {
-        
         if switchOnandof.isOn == false {
             self.billedButtonDid()
         }
-        
     }
     @objc func nextButtonDid() {
         print("Next viewController")
@@ -122,10 +92,21 @@ class unlimitedAccses: UIViewController {
     @objc func privacyButtonDid() {
         print("privacyButtonDid")
     }
+    
+    func targetButton() {
+        billedButton.layer.backgroundColor = UIColor.white.cgColor
+        freeButton.addTarget(self, action: #selector(freeButtonDid), for: .touchUpInside)
+        billedButton.addTarget(self, action: #selector(billedButtonDid), for: .touchUpInside)
+        nextButton.addTarget(self, action: #selector(nextButtonDid), for: .touchUpInside)
+        restoreButton.addTarget(self, action: #selector(restoreButtonDid), for: .touchUpInside)
+        privacyButton.addTarget(self, action: #selector(privacyButtonDid), for: .touchUpInside)
+        switchOnandof.setOn(false, animated: true)
+        switchOnandof.addTarget(self, action: #selector(updateSwitch), for:.valueChanged)
+    }
+    
     func setupUI(){
         
-        billedButton.layer.backgroundColor = UIColor.white.cgColor
-        
+        uiviewImage.frame = view.bounds
         
         view.addSubview(uiviewImage)
         view.addSubview(headerName)
@@ -148,7 +129,6 @@ class unlimitedAccses: UIViewController {
         view.addSubview(texlab7)
         view.addSubview(texlab8)
         
-
         enabledUi.translatesAutoresizingMaskIntoConstraints = false
         uiviewImage.translatesAutoresizingMaskIntoConstraints = false
         headerName.translatesAutoresizingMaskIntoConstraints = false
@@ -161,7 +141,6 @@ class unlimitedAccses: UIViewController {
         freeButton.translatesAutoresizingMaskIntoConstraints = false
         textLabel.translatesAutoresizingMaskIntoConstraints = false
         switchOnandof.translatesAutoresizingMaskIntoConstraints = false
-        
         texlab1.translatesAutoresizingMaskIntoConstraints = false
         texlab2.translatesAutoresizingMaskIntoConstraints = false
         texlab3.translatesAutoresizingMaskIntoConstraints = false
@@ -171,8 +150,6 @@ class unlimitedAccses: UIViewController {
         texlab7.translatesAutoresizingMaskIntoConstraints = false
         texlab8.translatesAutoresizingMaskIntoConstraints = false
             
-        uiviewImage.frame = view.bounds
-        
         NSLayoutConstraint.activate([
             
             

@@ -29,7 +29,6 @@ class ChatController: UIViewController {
         text.leftViewMode = .always
         text.placeholder = "Write a new message"
         text.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 12, height: text.frame.size.height))
-        
         return text
     }()
 
@@ -37,7 +36,10 @@ class ChatController: UIViewController {
         super.viewDidLoad()
         view.backgroundColor = .white
 
-        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "person.fill"), style: .done, target: self, action: .none), UIBarButtonItem(title: "Categories", style: .done, target: self, action: .none)]
+        
+        UINavigationBar.appearance().tintColor = UIColor.white //your desired color here
+        
+        navigationItem.rightBarButtonItems = [UIBarButtonItem(image: UIImage(systemName: "arrowshape.turn.up.left.2.fill"), style: .done, target: .none, action: .none), UIBarButtonItem(title: "Categories", style: .done, target: .none, action: .none)]
         
         setupUI()
     }

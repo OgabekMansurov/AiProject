@@ -17,7 +17,6 @@ class WebViewerController: UIViewController {
         self.urlString = urlString
         super.init(nibName: nil, bundle: nil)
     }
-    
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
@@ -25,24 +24,17 @@ class WebViewerController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.setupUI()
-        
         guard let url = URL(string: self.urlString) else {
             self.dismiss(animated: true, completion: nil)
             return
         }
-        
         self.webView.load(URLRequest(url: url))
-        
-        // TODO: - GIT BEFORE CODING
     }
-    
     private func setupUI() {
         self.navigationItem.rightBarButtonItem = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(didTapDone))
         self.navigationController?.navigationBar.backgroundColor = .secondarySystemBackground
-        
         self.view.addSubview(webView)
         self.webView.translatesAutoresizingMaskIntoConstraints = false
-        
         NSLayoutConstraint.activate([
             self.webView.topAnchor.constraint(equalTo: self.view.topAnchor),
             self.webView.bottomAnchor.constraint(equalTo: self.view.bottomAnchor),
@@ -50,7 +42,6 @@ class WebViewerController: UIViewController {
             self.webView.trailingAnchor.constraint(equalTo: self.view.trailingAnchor),
         ])
     }
-    
     @objc private func didTapDone() {
         self.dismiss(animated: true, completion: nil)
     }

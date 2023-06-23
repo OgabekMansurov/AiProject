@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		447A39F42A437A750041FD12 /* unlimitedAccses.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A39F32A437A750041FD12 /* unlimitedAccses.swift */; };
+		447A39F42A437A750041FD12 /* unlimitedController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A39F32A437A750041FD12 /* unlimitedController.swift */; };
 		447A39F82A4388A30041FD12 /* CustomLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A39F72A4388A30041FD12 /* CustomLabel.swift */; };
 		447A39FA2A43B0B00041FD12 /* ChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 447A39F92A43B0B00041FD12 /* ChatController.swift */; };
 		44985DC32A4431C7001621CF /* CustomButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44985DC22A4431C7001621CF /* CustomButton.swift */; };
@@ -15,6 +15,7 @@
 		44B372CC2A3B43E8006B8288 /* Color + hexString.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B372CB2A3B43E8006B8288 /* Color + hexString.swift */; };
 		44B372CE2A3B4493006B8288 /* NewChatController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B372CD2A3B4493006B8288 /* NewChatController.swift */; };
 		44B372D42A3C5877006B8288 /* webViewerController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44B372D32A3C5877006B8288 /* webViewerController.swift */; };
+		44CD9EEA2A44EE2B00D79E34 /* CustumView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 44CD9EE92A44EE2B00D79E34 /* CustumView.swift */; };
 		99F9B0DB27810881007D722D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9B0DA27810881007D722D /* AppDelegate.swift */; };
 		99F9B0DD27810881007D722D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9B0DC27810881007D722D /* SceneDelegate.swift */; };
 		99F9B0DF27810881007D722D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 99F9B0DE27810881007D722D /* ViewController.swift */; };
@@ -41,7 +42,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		447A39F32A437A750041FD12 /* unlimitedAccses.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unlimitedAccses.swift; sourceTree = "<group>"; };
+		447A39F32A437A750041FD12 /* unlimitedController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = unlimitedController.swift; sourceTree = "<group>"; };
 		447A39F72A4388A30041FD12 /* CustomLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomLabel.swift; sourceTree = "<group>"; };
 		447A39F92A43B0B00041FD12 /* ChatController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ChatController.swift; sourceTree = "<group>"; };
 		44985DC22A4431C7001621CF /* CustomButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CustomButton.swift; sourceTree = "<group>"; };
@@ -49,6 +50,7 @@
 		44B372CB2A3B43E8006B8288 /* Color + hexString.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "Color + hexString.swift"; sourceTree = "<group>"; };
 		44B372CD2A3B4493006B8288 /* NewChatController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewChatController.swift; sourceTree = "<group>"; };
 		44B372D32A3C5877006B8288 /* webViewerController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = webViewerController.swift; sourceTree = "<group>"; };
+		44CD9EE92A44EE2B00D79E34 /* CustumView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustumView.swift; sourceTree = "<group>"; };
 		99F9B0D727810881007D722D /* AI Project.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "AI Project.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		99F9B0DA27810881007D722D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		99F9B0DC27810881007D722D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -86,6 +88,45 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		44CD9EE52A44EB9500D79E34 /* Supporting */ = {
+			isa = PBXGroup;
+			children = (
+				99F9B0DA27810881007D722D /* AppDelegate.swift */,
+				99F9B0DC27810881007D722D /* SceneDelegate.swift */,
+			);
+			path = Supporting;
+			sourceTree = "<group>";
+		};
+		44CD9EE62A44EB9D00D79E34 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				99F9B0DE27810881007D722D /* ViewController.swift */,
+				447A39F32A437A750041FD12 /* unlimitedController.swift */,
+				447A39F92A43B0B00041FD12 /* ChatController.swift */,
+				44B372D32A3C5877006B8288 /* webViewerController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		44CD9EE72A44EBAB00D79E34 /* Custom */ = {
+			isa = PBXGroup;
+			children = (
+				447A39F72A4388A30041FD12 /* CustomLabel.swift */,
+				44985DC22A4431C7001621CF /* CustomButton.swift */,
+				44CD9EE92A44EE2B00D79E34 /* CustumView.swift */,
+			);
+			path = Custom;
+			sourceTree = "<group>";
+		};
+		44CD9EE82A44EBFE00D79E34 /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				44B372CD2A3B4493006B8288 /* NewChatController.swift */,
+				44B372CB2A3B43E8006B8288 /* Color + hexString.swift */,
+			);
+			path = Extension;
+			sourceTree = "<group>";
+		};
 		99F9B0CE27810881007D722D = {
 			isa = PBXGroup;
 			children = (
@@ -107,16 +148,10 @@
 		99F9B0D927810881007D722D /* Bayleaf Store */ = {
 			isa = PBXGroup;
 			children = (
-				99F9B0DA27810881007D722D /* AppDelegate.swift */,
-				99F9B0DC27810881007D722D /* SceneDelegate.swift */,
-				99F9B0DE27810881007D722D /* ViewController.swift */,
-				447A39F32A437A750041FD12 /* unlimitedAccses.swift */,
-				447A39F92A43B0B00041FD12 /* ChatController.swift */,
-				447A39F72A4388A30041FD12 /* CustomLabel.swift */,
-				44B372CB2A3B43E8006B8288 /* Color + hexString.swift */,
-				44985DC22A4431C7001621CF /* CustomButton.swift */,
-				44B372CD2A3B4493006B8288 /* NewChatController.swift */,
-				44B372D32A3C5877006B8288 /* webViewerController.swift */,
+				44CD9EE52A44EB9500D79E34 /* Supporting */,
+				44CD9EE62A44EB9D00D79E34 /* Controller */,
+				44CD9EE82A44EBFE00D79E34 /* Extension */,
+				44CD9EE72A44EBAB00D79E34 /* Custom */,
 				99F9B0E027810881007D722D /* Main.storyboard */,
 				99F9B0E327810882007D722D /* Assets.xcassets */,
 				44B372C92A3B4306006B8288 /* back.png */,
@@ -217,8 +252,6 @@
 			);
 			mainGroup = 99F9B0CE27810881007D722D;
 			packageReferences = (
-				447A39FB2A43B7960041FD12 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */,
-				44985DC42A4471D8001621CF /* XCRemoteSwiftPackageReference "OpenAISwift" */,
 			);
 			productRefGroup = 99F9B0D827810881007D722D /* Products */;
 			projectDirPath = "";
@@ -271,9 +304,10 @@
 				44985DC32A4431C7001621CF /* CustomButton.swift in Sources */,
 				99F9B0DF27810881007D722D /* ViewController.swift in Sources */,
 				99F9B0DB27810881007D722D /* AppDelegate.swift in Sources */,
-				447A39F42A437A750041FD12 /* unlimitedAccses.swift in Sources */,
+				447A39F42A437A750041FD12 /* unlimitedController.swift in Sources */,
 				99F9B0DD27810881007D722D /* SceneDelegate.swift in Sources */,
 				447A39FA2A43B0B00041FD12 /* ChatController.swift in Sources */,
+				44CD9EEA2A44EE2B00D79E34 /* CustumView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -654,25 +688,6 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
-
-/* Begin XCRemoteSwiftPackageReference section */
-		447A39FB2A43B7960041FD12 /* XCRemoteSwiftPackageReference "IQKeyboardManager" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/hackiftekhar/IQKeyboardManager.git";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 6.5.0;
-			};
-		};
-		44985DC42A4471D8001621CF /* XCRemoteSwiftPackageReference "OpenAISwift" */ = {
-			isa = XCRemoteSwiftPackageReference;
-			repositoryURL = "https://github.com/adamrushy/OpenAISwift";
-			requirement = {
-				kind = upToNextMajorVersion;
-				minimumVersion = 1.0.0;
-			};
-		};
-/* End XCRemoteSwiftPackageReference section */
 	};
 	rootObject = 99F9B0CF27810881007D722D /* Project object */;
 }
